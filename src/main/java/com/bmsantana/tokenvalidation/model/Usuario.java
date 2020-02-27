@@ -1,4 +1,4 @@
-package com.bmsantana.tokenvalidation.model.entity;
+package com.bmsantana.tokenvalidation.model;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.bmsantana.tokenvalidation.model.enums.StatusAutenticacao;
+import com.bmsantana.tokenvalidation.dto.UsuarioDTO;
+import com.bmsantana.tokenvalidation.enums.StatusAutenticacao;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -51,5 +52,10 @@ public class Usuario {
 	@Column(name = "status")
 	@Enumerated(value = EnumType.STRING)
 	private StatusAutenticacao status;
-
+	
+	public Usuario(UsuarioDTO dto) {
+		setNome(dto.getNome());
+		setEmail(dto.getEmail());
+		setTelefone(dto.getTelefone());
+	}
 }

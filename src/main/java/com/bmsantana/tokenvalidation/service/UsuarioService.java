@@ -1,7 +1,7 @@
 package com.bmsantana.tokenvalidation.service;
 
-import com.bmsantana.tokenvalidation.model.entity.Usuario;
-import com.bmsantana.tokenvalidation.model.enums.StatusAutenticacao;
+import com.bmsantana.tokenvalidation.enums.StatusAutenticacao;
+import com.bmsantana.tokenvalidation.model.Usuario;
 
 public interface UsuarioService {
 	
@@ -12,5 +12,7 @@ public interface UsuarioService {
 	void validar(Usuario usuario);
 		
 	void atualizarStatus(Usuario usuario, StatusAutenticacao status);
+	
+	Usuario buscarPorEmail(String email);
 
 }

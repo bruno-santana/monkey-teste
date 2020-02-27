@@ -1,4 +1,4 @@
-package com.bmsantana.tokenvalidation.model.enums;
+package com.bmsantana.tokenvalidation.enums;
 
 public enum StatusAutenticacao {
 
