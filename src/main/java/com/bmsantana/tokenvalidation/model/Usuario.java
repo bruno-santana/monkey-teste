@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.bmsantana.tokenvalidation.dto.UsuarioDTO;
 import com.bmsantana.tokenvalidation.enums.StatusAutenticacao;
@@ -25,7 +26,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name= "usuario", schema = "autenticacao")
+@Table(name= "usuario", schema = "autenticacao", 
+uniqueConstraints = @UniqueConstraint(columnNames = "email", name = "uk_email"))
 public class Usuario {
 	
 	@Id

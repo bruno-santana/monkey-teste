@@ -62,12 +62,8 @@ public class UsuarioResource {
 			}
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			return new ResponseEntity<>("Email não existe", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		
-		System.out.println(token);
-		
-		return null;
 		
 	}
 	

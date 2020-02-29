@@ -41,8 +41,7 @@ public class UsuarioServiceImp implements UsuarioService {
 	@Transactional
 	public Usuario atualizar(Usuario usuario) {
 		Objects.requireNonNull(usuario.getId());
-		repository.save(usuario);
-		return null;
+		return repository.save(usuario);
 	}
 
 	@Override

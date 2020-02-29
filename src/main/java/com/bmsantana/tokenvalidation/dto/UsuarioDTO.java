@@ -2,6 +2,7 @@ package com.bmsantana.tokenvalidation.dto;
 
 import javax.validation.constraints.Email;
 
+import org.hibernate.annotations.NotFound;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import lombok.Builder;
