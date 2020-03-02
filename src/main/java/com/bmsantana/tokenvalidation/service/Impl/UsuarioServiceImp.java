@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bmsantana.tokenvalidation.enums.StatusAutenticacao;
+import com.bmsantana.tokenvalidation.exception.RegraNegocioException;
 import com.bmsantana.tokenvalidation.model.Usuario;
 import com.bmsantana.tokenvalidation.repository.UsuarioRepository;
 import com.bmsantana.tokenvalidation.service.EmailService;
@@ -26,6 +27,7 @@ public class UsuarioServiceImp implements UsuarioService {
 	@Override
 	@Transactional
 	public Usuario salvar(Usuario usuario) {
+		validarEmail(usuario.getEmail());
 		usuario.setStatus(StatusAutenticacao.PENDENTE);
 		usuario = repository.save(usuario);
 		try {
@@ -53,16 +55,16 @@ public class UsuarioServiceImp implements UsuarioService {
 	}
 
 	@Override
-	public void validar(Usuario usuario) {
-		// TODO Auto-generated method stub
-
+	public void validarEmail(String email) {
+		boolean existe = repository.existsByEmail(email);
+		if(existe) {
+			throw new RegraNegocioException("Já existe um usuário cadastrado com este email!");
+		}		
 	}
-	
+
 	@Override
 	public Usuario buscarPorEmail(String email) {
 		return repository.findByEmail(email);
 	}
-
 	
-
 }

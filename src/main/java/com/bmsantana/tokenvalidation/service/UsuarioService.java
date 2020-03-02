@@ -9,10 +9,10 @@ public interface UsuarioService {
 
 	Usuario atualizar(Usuario usuario);
 	
-	void validar(Usuario usuario);
+	void validarEmail(String email);
 		
 	void atualizarStatus(Usuario usuario, StatusAutenticacao status);
-	
+
 	Usuario buscarPorEmail(String email);
 
 }
