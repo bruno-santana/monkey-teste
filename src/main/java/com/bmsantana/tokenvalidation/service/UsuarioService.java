@@ -1,5 +1,6 @@
 package com.bmsantana.tokenvalidation.service;
 
+
 import com.bmsantana.tokenvalidation.enums.StatusAutenticacao;
 import com.bmsantana.tokenvalidation.model.Usuario;
 

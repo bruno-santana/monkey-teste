@@ -1,6 +1,8 @@
 package com.bmsantana.tokenvalidation.service.Impl;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.Optional;
 
 import javax.mail.MessagingException;
 
@@ -29,6 +31,7 @@ public class UsuarioServiceImp implements UsuarioService {
 	public Usuario salvar(Usuario usuario) {
 		validarEmail(usuario.getEmail());
 		usuario.setStatus(StatusAutenticacao.PENDENTE);
+		usuario.setDataCadastro(LocalDateTime.now());
 		usuario = repository.save(usuario);
 		try {
 			emailService.sendEmail(usuario);
